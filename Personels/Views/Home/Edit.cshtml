@@ -1,0 +1,21 @@
+﻿@model Member
+
+<h4>Edit</h4>
+<hr />
+<form asp-controller="Home" asp-action="Edit">
+    Id: <input class="form-control" type="text" asp-for="Id" disabled />
+    Name: <input class="form-control" type="text" asp-for="Name" />
+    LastName: <input class="form-control" type="text" asp-for="Lastname" />
+    PhoneNumber: <input class="form-control" type="text" asp-for="PhoneNumber" />
+    NationalCode: <input class="form-control" type="text" asp-for="NationalCode" />
+    SignUp_Date: <input class="form-control" type="text" asp-for="SignUpDate" disabled value="@DateTime.Now" />
+    BirthDate: <input class="form-control" type="text" asp-for="BirthDate" />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Edit" />
+    <input asp-action="Index" class="btn btn-secondary" type="submit" value="Back" />
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

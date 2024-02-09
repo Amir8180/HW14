@@ -1,0 +1,42 @@
+﻿@model List<Member>
+
+<h4>Create</h4>
+<hr />
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form asp-controller="Home" asp-action="Create">
+    Id: <input class="form-control" type="text" name="Id" />
+    Name: <input class="form-control" type="text" name="Name" />
+    LastName: <input class="form-control" type="text" name="LastName" />
+    NationalCode: <input class="form-control" type="text" name="NationalCode" />
+    PhoneNumber: <input class="form-control" type="text" name="PhoneNumber" />
+    SignUp_Date: <input class="form-control" type="text" name="SignUp_Date" disabled value="@DateTime.Now" />
+    BirthDate: <input class="form-control" type="text" name="BirthDate" />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Add" />
+    <input asp-action="Index" class="btn btn-secondary" type="submit" value="Back" />
+</form>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,29 @@
+﻿@model Personels_Manager.Models.Member
+@{
+    ViewBag.Title = "ثبت عضو جدید";
+}
+
+<h2>ثبت عضو جدید</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <!-- سایر فیلدها را نیز اضافه کنید -->
+
+    <div class="form-group">
+        <input type="submit" value="ثبت" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</div>

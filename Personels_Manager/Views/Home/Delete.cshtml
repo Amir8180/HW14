@@ -1,0 +1,25 @@
+﻿@model Personels_Manager.Models.Member
+
+@{
+    ViewBag.Title = "حذف عضو";
+}
+
+<h2>حذف عضو</h2>
+
+<h3>آیا از حذف این عضو مطمئن هستید؟</h3>
+<div>
+    <h4>نام: @Html.DisplayFor(model => model.FirstName)</h4>
+    <h4>نام خانوادگی: @Html.DisplayFor(model => model.LastName)</h4>
+    <!-- سایر اطلاعات را نیز اضافه کنید -->
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="حذف" class="btn btn-danger" />
+}
+
+<div>
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</div>
+

@@ -1,0 +1,98 @@
+﻿@model List<Member>
+
+@{
+    ViewBag.Title = "لیست اعضا";
+}
+
+<h2>لیست اعضا</h2>
+<br />
+<a asp-controller="Home" asp-action="Create">
+<input class="btn btn-success" type="submit" value="Create" />
+</a>
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>NationalCod</th>
+            <th>PhoneNumber</th>
+            <th>BirthDate</th>
+            <th>SignUp_Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var items in Model)
+        {
+            <tr>
+                <td>@items.Id</td>
+                <td>@items.Name</td>
+                <td>@items.Lastname</td>
+                <td>@items.NationalCode</td>
+                <td>@items.PhoneNumber</td>
+                <td>@items.BirthDate</td>
+                <td>@items.SignUpDate</td>
+                <td>
+                <a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-id="@items.Id">Edit</a>
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@items.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="bodyModal" class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div> 
+
+@section Scripts
+ {
+    <script>
+        function CreateUser() {
+            $.ajax({
+                url:"Views/Home/Create/",
+                type:"Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#bodyModal').html(result);
+            })
+        }
+    </script>
+    <script>
+        function EditUser(id) {
+            $.ajax({
+                url: "Views/Home/Edit/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#bodyModal').html(result);
+            })
+        }
+    </script>
+    <script>
+        function DeleteUser(id) {
+            $.ajax({
+                url: "Views/Home/Delete/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#bodyModal').html(result);
+            })
+        }
+    </script>
+} *@
